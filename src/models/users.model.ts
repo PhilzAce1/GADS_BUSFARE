@@ -32,6 +32,8 @@ export class userReModel extends BaseEntity implements User {
 
   @Column()
   accountnumber: number;
+  @Column('numeric', { default: 0 })
+  currentBalance: number
 
   @CreateDateColumn()
   createdAt: Date;

@@ -4,7 +4,7 @@ import { CreateUserDto } from '../dtos/users.dto';
 import HttpException from '../exceptions/HttpException';
 import { DataStoredInToken, TokenData } from '../interfaces/auth.interface';
 import { User } from '../interfaces/users.interface';
-import { userReModel as userModel } from '../models/users.model';
+import { userModel } from '../models/users.model';
 import { isEmptyObject } from '../utils/util';
 import { JWT_SECRET } from '../config';
 import { sendMessage } from '../utils/sendMail';

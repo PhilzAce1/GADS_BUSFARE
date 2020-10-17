@@ -1,6 +1,6 @@
 import { Entity, BaseEntity, PrimaryGeneratedColumn, Column, OneToOne, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 import { Transaction } from '../interfaces/transaction.interface'
-import { userReModel as User } from './users.model'
+import { userModel as User } from './users.model'
 
 @Entity()
 export class transactionModel extends BaseEntity implements Transaction {

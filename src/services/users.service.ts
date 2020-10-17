@@ -2,7 +2,7 @@ import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from '../dtos/users.dto';
 import HttpException from '../exceptions/HttpException';
 import { User } from '../interfaces/users.interface';
-import { userReModel as userModel } from '../models/users.model';
+import { userModel } from '../models/users.model';
 import { isEmptyObject } from '../utils/util';
 
 class UserService {

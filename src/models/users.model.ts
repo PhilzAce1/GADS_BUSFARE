@@ -8,7 +8,7 @@ import {
 } from 'typeorm';
 import { User } from '../interfaces/users.interface';
 @Entity()
-export class userReModel extends BaseEntity implements User {
+export class userModel extends BaseEntity implements User {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -24,14 +24,15 @@ export class userReModel extends BaseEntity implements User {
   @Column('numeric', { default: 0 })
   role: number;
 
-  @Column()
+  @Column({ nullable: true })
   bankname: string;
 
-  @Column()
+  @Column({ nullable: true })
   bankusername: string;
 
-  @Column()
+  @Column({ nullable: true })
   accountnumber: number;
+
   @Column('numeric', { default: 0 })
   currentBalance: number
 
@@ -41,10 +42,3 @@ export class userReModel extends BaseEntity implements User {
   @UpdateDateColumn()
   updatedAt: Date;
 }
-
-// // password: q1w2e3r4
-const userModel: User[] = [
-
-];
-
-export default userModel;

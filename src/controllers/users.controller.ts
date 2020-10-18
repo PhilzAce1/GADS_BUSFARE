@@ -15,7 +15,15 @@ class UsersController {
       next(error);
     }
   };
-
+  public fundAccount = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const { userId, amount } = req.body
+      const fundSuccess = this.userService.fundAccount(userId, amount)
+      res.status(200).json({ success: true, message: "user balance updated" })
+    } catch (error) {
+      next(error)
+    }
+  }
   public getUserById = async (
     req: Request,
     res: Response,

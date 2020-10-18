@@ -20,7 +20,6 @@ export default class TransactionRoute implements Route {
 
         // create new Transaction 
         this.router.post(`${this.path}/create`,
-
             validationMiddleware(TransactionDto),
             this.transactionController.createNewTrasaction)
     }

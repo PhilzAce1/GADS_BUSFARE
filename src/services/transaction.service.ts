@@ -26,11 +26,7 @@ export default class TransactionService {
         return newTransaction
     }
     public async getTransactionById(id: number): Promise<transactionModel | undefined> {
-
-
-
         const transaction = await this.transactions.findOne({ where: { id: id } })
-
         return transaction
     }
     public async getAllUserTransaction(id: number) {

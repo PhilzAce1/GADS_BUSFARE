@@ -18,7 +18,12 @@ class UserService {
     if (!findUser) throw new HttpException(409, "You're not user");
     return findUser;
   }
-
+  public async fundAccount(userId, amount) {
+    const findUser = await this.users.findOne({ where: { id: userId } })
+    const newBal = findUser?.currentBalance + amount
+    await this.users.update({ id: userId }, { currentBalance: newBal })
+    return true
+  }
   public async createUser(userData: CreateUserDto): Promise<User> {
     if (isEmptyObject(userData))
       throw new HttpException(400, "You're not userData");

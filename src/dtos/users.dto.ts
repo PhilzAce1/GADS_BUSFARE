@@ -11,13 +11,15 @@ export class CreateUserDto {
   public email: string;
 
   @IsString()
+  public firstname: string;
+  @IsString()
+  public lastname: string;
+
+  @IsString()
   public password: string;
 
-  @MinLength(6)
-  @MaxLength(20)
   @IsString()
-  public username: string;
+  phone: string;
 
-  @IsInt()
   public role: number;
 }

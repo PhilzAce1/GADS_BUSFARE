@@ -25,9 +25,13 @@ class AuthService {
       );
 
     const hashedPassword = await bcrypt.hash(userData.password, 10);
-
+    const { firstname, lastname, email, phone, role } = userData;
     const createUserData: User = {
-      ...userData,
+      firstname,
+      lastname,
+      email,
+      phone,
+      role: role || 0,
       password: hashedPassword,
     };
     await this.users.create(createUserData).save();
@@ -37,7 +41,7 @@ class AuthService {
 
   public async login(
     userData: CreateUserDto
-  ): Promise<{ cookie: string; findUser: User }> {
+  ): Promise<{ token: string; findUser: User }> {
     if (isEmptyObject(userData))
       throw new HttpException(400, "You're not userData");
 
@@ -55,11 +59,11 @@ class AuthService {
       throw new HttpException(409, "You're password not matching");
 
     const tokenData = this.createToken(findUser);
-    const cookie = this.createCookie(tokenData);
+    // const cookie = this.createCookie(tokenData);
 
     findUser.password = '';
 
-    return { cookie, findUser };
+    return { token: tokenData.token, findUser };
   }
   public async forgotPassword(email: string): Promise<boolean> {
     const findUser = await this.users.findOne({ where: { email } });

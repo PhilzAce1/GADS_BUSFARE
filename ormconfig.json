@@ -3,7 +3,7 @@
     "name": "production",
     "type": "postgres",
     "synchronize": true,
-    "logging": true
+    "logging": false
   },
   {
     "name": "development",
@@ -14,7 +14,7 @@
     "password": "admin",
     "database": "busfare",
     "synchronize": true,
-    "logging": true,
+    "logging": false,
     "entities": ["src/entity/**/*.ts"],
     "migrations": ["src/migration/**/*.ts"],
     "subscribers": ["src/subscriber/**/*.ts"],

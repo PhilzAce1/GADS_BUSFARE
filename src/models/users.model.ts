@@ -12,14 +12,20 @@ export class userModel extends BaseEntity implements User {
   @PrimaryGeneratedColumn()
   id?: number;
 
-  @Column()
-  email: string;
+  @Column({ nullable: true })
+  firstname: string;
+
+  @Column({ nullable: true })
+  lastname: string;
 
   @Column()
   password: string;
 
+  @Column({ nullable: true })
+  phone: string;
+
   @Column()
-  username: string;
+  email: string;
 
   @Column('numeric', { default: 0 })
   role: number;
@@ -34,7 +40,7 @@ export class userModel extends BaseEntity implements User {
   accountnumber: number;
 
   @Column('numeric', { default: 0 })
-  currentBalance: number
+  currentBalance: number;
 
   @CreateDateColumn()
   createdAt: Date;

@@ -21,7 +21,6 @@ class AuthRoute implements Route {
     );
     this.router.post(
       `/login`,
-      validationMiddleware(CreateUserDto),
       this.authController.logIn
     );
     this.router.post('forgotpassword', this.authController.forgotPassword);
